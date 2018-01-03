@@ -1,0 +1,99 @@
+body{
+  background-color: #c1e868;
+}
+
+.techfont{
+  font-family: 'Russo One', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.poetrydate{
+  text-align: center;
+}
+
+.poetrytitle{
+  font-family: 'Russo One', sans-serif;
+  font-size: 3em;
+  text-align: center;
+}
+
+.poetrycontent{
+  font-family: 'Montserrat';
+  font-size: 1.5em;
+}
+
+.centerstage{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-comment{
+  position: absolute;
+  right: 0px;
+}
+
+.bigbrand{
+  font-size: 1.5em;
+}
+
+.header{
+  margin-left: 50%;
+  margin-top: 20%;
+  color: #252d12;
+  font-family: 'Russo One', sans-serif;
+  font-size: 6em;
+}
+
+.poetry p{
+  margin-left: 40%;
+  color: #252d12;
+  font-family: 'Russo One', sans-serif;
+}
+
+.poetry a{
+  margin-left: 40%;
+  color: #252d12;
+  text-decoration: underline;
+  font-family: 'Russo One', sans-serif;
+  font-size: 0.7em;
+}
+
+.jumbotron{
+  background-color: #252d12;
+  color: #c1e868;
+  margin-left: 30%;
+  margin-top: 10%;
+}
+
+.heading1{
+  color: #252d12;
+  margin-left: 50%;
+  font-weight: bold;
+}
+
+.heading1 h1{
+  background-color: #252d12;
+  color: #c1e868;
+  border: 1px solid #252d12;
+  border-radius: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-left: 30%;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+button{
+  background-color: #252d12;
+  border: 1px solid #252d12;
+  border-radius: 10px;
+}
+
+button a{
+  color: #c1e868;
+}
+
+#color{
+    color: #c1e868;
+}

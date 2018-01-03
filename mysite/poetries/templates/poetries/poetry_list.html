@@ -1,0 +1,23 @@
+{% extends 'poetries/base.html' %}
+
+{% block content %}
+<div class="centerstage">
+    {% for poetry in poetry_list %}
+        <div class="poetry">
+          {% if poetry.published_date %}
+            <h1><a href="{% url 'poetry_detail' pk=poetry.pk %}">{{ poetry.title }}</a></h1>
+                <p>Published on: {{ poetry.published_date|date:"D M Y"}}</p>
+            <a href="{% url 'poetry_detail' pk=poetry.pk %}">Comments: {{ poetry.approve_comments.count }}</a>
+            <hr>
+            {% else %}
+            {% if user.is_authenticated %}
+            <p>created: {{ poetry.create_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'poetry_detail' pk=poetry.pk %}">{{ poetry.title }}</a></h1>
+            <p>{{ poetry.text|truncatechars:100 }}</p>
+            <hr>
+            {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

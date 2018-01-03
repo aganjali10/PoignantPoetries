@@ -1,0 +1,12 @@
+{% extends 'poetries/base.html' %}
+
+{% block content %}
+
+    <h1>New comment</h1>
+    <form method="POST" class="poetry-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button id="color" type="submit" class="btn btn-dark">Post Comment</button>
+    </form>
+
+{% endblock %}

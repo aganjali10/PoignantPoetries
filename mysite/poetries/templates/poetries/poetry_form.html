@@ -1,0 +1,14 @@
+{% extends 'poetries/base.html' %}
+
+{% block content %}
+<div class="heading1">
+    <h1> NEW POETRY</h1>
+
+    <form method="POST" class="poetry-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+  </div>
+
+{% endblock %}

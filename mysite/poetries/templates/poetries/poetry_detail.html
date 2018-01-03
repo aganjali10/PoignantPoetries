@@ -1,0 +1,52 @@
+{% extends 'poetries/base.html' %}
+
+{% block content %}
+
+
+        <h1 class='poetrytitle loader'>{{ poetry.title }}</h1>
+
+        {% if poetry.published_date %}
+            <div class="date poetrydate">
+                {{ poetry.published_date }}
+            </div>
+
+        {% else %}
+            <button type="button" class="btn btn-outline-dark"><a href="{% url 'poetry_publish' pk=poetry.pk %}">Publish</a></button>
+        {% endif %}
+
+      <p class='poetrycontent' >{{ poetry.text|safe|linebreaksbr }}</p>
+
+
+      {% if user.is_authenticated %}
+          <button type="button" class="btn btn-dark"><a href="{% url 'poetry_edit' pk=poetry.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></button>
+          <button type="button" class="btn btn-dark"><a href="{% url 'poetry_remove' pk=poetry.pk %}"><span class="glyphicon glyphicon-remove"></span></a></button>
+      {% endif %}
+
+
+
+  <hr>
+  <button type="button" class="btn btn-dark"><a href="{% url 'add_comment_to_poetry' pk=poetry.pk %}">Add comment</a></button>
+  <div class="container">
+
+
+  {% for comment in poetry.comments.all %}
+  <br>
+      {% if user.is_authenticated or comment.approved_comment %}
+
+              {{ comment.create_date }}
+              {% if not comment.approved_comment %}
+                  <button type="button" class="btn btn-dark"><a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a></button>
+                  <button type="button" class="btn btn-dark"><a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a></button>
+              {% endif %}
+
+          <p>{{ comment.text|safe|linebreaks }}</p>
+          <p>posted by: <strong>{{ comment.author }}</strong></p>
+
+      {% endif %}
+  {% empty %}
+    <br>
+      <p>No comments posted.</p>
+  {% endfor %}
+</div>
+
+{% endblock %}
